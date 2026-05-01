@@ -50,6 +50,15 @@ class stack
 		--size_;
 	}
 
+	bmstu::stack<T>& operator+(bmstu::stack<T> &other) {
+		while (!other.empty()) {
+		this->push(other.top());
+		other.pop();
+		}
+
+		return *this;
+	}
+
 	T& top()
 	{
 		if (empty())

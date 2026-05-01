@@ -325,3 +325,31 @@ TEST(StackTest, CheckBraceSequence)
 	ASSERT_FALSE(checkBraceSequence("())"));
 	ASSERT_FALSE(checkBraceSequence(")("));
 }
+
+int wordCount(const char * str){
+	int sum = 0;
+	int i = 0;
+	while(str[i] != '\0'){
+		i++;
+		if(str[i] == ' '){
+			sum+=1;
+		}
+		if(str[i] == '\0'){
+			sum+=1;
+			break;
+		}
+	}
+	return sum;
+}
+	
+
+TEST(StackTest, SummTest) 
+{
+	const char * str = "I have a pen, i have a apple, hmm t pen";
+	ASSERT_EQ(wordCount(str), 11);
+	ASSERT_EQ(wordCount(""), 0);
+	ASSERT_EQ(wordCount("Teacher have a gun"), 4);
+	ASSERT_EQ(wordCount("Roma have a knife"), 4);
+	ASSERT_EQ(wordCount("Its pinky, its a brain"), 5);
+	ASSERT_EQ(wordCount("Its pinky , its a brain"), 5);
+}
